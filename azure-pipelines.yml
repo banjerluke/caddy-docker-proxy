@@ -13,6 +13,12 @@ jobs:
       ARTIFACTS: '$(Build.ArtifactStagingDirectory)'
     displayName: Build
 
+  - bash: ./run-docker-tests.sh
+    env:
+      ARTIFACTS: '$(Build.ArtifactStagingDirectory)'
+    displayName: Run integration tests
+    continueOnError: true
+
   - task: PublishBuildArtifacts@1
     inputs:
       artifactName: binaries

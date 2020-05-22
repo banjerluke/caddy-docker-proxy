@@ -2,6 +2,8 @@
 
 set -e
 
+docker swarm init || true
+
 # Build
 CGO_ENABLED=0 GOARCH=amd64 GOOS=linux go build -o artifacts/binaries/linux/amd64/caddy
 chmod +x artifacts/binaries/linux/amd64/caddy
